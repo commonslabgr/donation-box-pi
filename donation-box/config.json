@@ -1,0 +1,67 @@
+{
+  "General": {
+    "currency": "EUR",
+    "Log": true,
+    "Mode": "Debug",
+    "Init Wait time (sec)": 0,
+    "_othermodes": "Test,Production"
+  },
+  "Serial": {
+    "dev": "/dev/ttyUSB0",
+    "rate": 9600
+  },
+  "Database": {
+    "server":"localhost",
+    "name" : "donationbox",
+    "username":"wpuser",
+    "password":"dbc0mm0ns"
+  },
+  "WebSockets": {
+    "server":"ws://donationbox:8888/ws"
+  },
+  "Protocol":{
+
+  },
+  "Printer": {
+    "enabled": true,
+    "dev": "/dev/ttyAMA0",
+    "baudrate": 19200,
+    "heattime": 150,
+    "timeout": 5,
+    "feedlines": 3
+  },
+  "Game": {
+    "enabled": false,
+    "run": "/home/commonslab/game/start.sh"
+  },
+  "Network": {
+      "enabled": true,
+      "boxID": 1,
+      "URL": "http://thecoopbox.commonslab.gr",
+      "insert": "network_input.php",
+      "get": "get_donation.php"
+  },
+  "UI": {
+    "ShowPopUps": false,
+    "Mode": "Test",
+    "_othermodes": "Debug,Production"
+  },
+  "Files": {
+    "Services": {
+      "Serial2DB.py": "home/commonslab/donation-box/",
+      "DonationServer.py": "home/commonslab/donation-box/",
+      "donationbox.sh": "home/commonslab/donation-box/scripts/"
+    },
+    "ProgressBar": {
+      "pro-bars.min.css":"",
+      "pro-bars.min.js":"",
+      "backbone.js":"",
+      "appear.min.js":"",
+      "jquery-ui.min.js":""
+    },
+    "PopUp": {
+      "jquery.min.js":"",
+      "jquery.bpopup.min.js":""
+    }
+  }
+}

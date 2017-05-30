@@ -20,11 +20,11 @@ get_header();
         <!-- Progress Bar BEGIN -->
         <script src="/jquery-ui.min.js"></script>
         <div id="instructions">
-            <div class="instruction_line"><img src="/wp-content/uploads/2017/04/red_dot.png"> Εάν θέλεις να ενισχύσεις το έργο που προβάλλεται τώρα στην οθόνη βάλε το κέρμα στον κερματοδέκτη και πάρε την απόδειξη.
+            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Εάν θέλεις να ενισχύσεις το έργο που προβάλλεται τώρα στην οθόνη βάλε το κέρμα στον κερματοδέκτη και πάρε την απόδειξη.
             </div>
-            <div class="instruction_line"><img src="/wp-content/uploads/2017/04/red_dot.png"> Ενημερώσου και για άλλα έργα που μπορείς να ενισχύσεις κουνώντας το μοχλό δεξιά ή αριστερά.
+            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Ενημερώσου και για άλλα έργα που μπορείς να ενισχύσεις κουνώντας το μοχλό δεξιά ή αριστερά.
             </div>
-            <div class="instruction_line"><img src="/wp-content/uploads/2017/04/red_dot.png"> Με τον κωδικό που αναγράφεται στην απόδειξη μάζεψε πόντους στο http://thecoopbox.commonslab.gr και πάρε ένα T-shirt δώρο με συνολικές δωρεές 30€.
+            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Με τον κωδικό που αναγράφεται στην απόδειξη μάζεψε πόντους στο http://thecoopbox.commonslab.gr και πάρε ένα T-shirt δώρο με συνολικές δωρεές 30€.
             </div>
         </div>
 
@@ -41,7 +41,7 @@ get_header();
                 ΔΩΡΕΕΣ ΜΕΧΡΙ ΣΗΜΕΡΑ
                 <div id="totalamount" >
 <?php
-    $conn = new mysqli("localhost", "root", "c0mm0ns", "donationbox");
+    $conn = new mysqli("localhost", "dbuser", "c0mm0nsDB", "donationbox");
     if ($conn->connect_error)
     {
         die("Connection failed: " . $conn->connect_error);

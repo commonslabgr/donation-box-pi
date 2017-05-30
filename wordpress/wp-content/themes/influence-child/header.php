@@ -11,14 +11,11 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-  <script src="/config.js"></script>
   <script src="/jquery.min.js"></script>
   <script src="/jquery.bpopup.min.js"></script>
-  <script src="/video.js"> </script>
   <script src="/jquery.plugin.js"></script>
   <script src="/jquery.countdown.min.js"></script>
   <link href="/pro-bars.min.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="/video-js.css" rel="stylesheet" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 <script>
@@ -31,9 +28,9 @@ var GameActive = false;
 var playgame = false;
 var projects = 2;
 var sel_project = 0;
-var home_url = "http://donationbox/project-1";
+var home_url = "http://donationbox/Project-1";
 var timeout = 500;//120; //timeout in seconds
-var str_href_project_id = "project";
+var str_href_project_id = "Project";
 var wait_for_print_timeout = 11000; //timeout for pop up when printing receipt
 
 function startTimer(duration, display) {
@@ -93,7 +90,7 @@ $(document).ready(function(){
         var player0 = document.getElementById('videoplayer0');
         var player1 = document.getElementById('videoplayer1');
         var player2 = document.getElementById('videoplayer2');
-            player0.play();
+            player0.play();SetTimer
             player1.pause();
             player2.pause();
         } else if (activetab == '#ert_pane1-1') {
@@ -431,11 +428,11 @@ $(function() {
         case 37: // left
         if ( ($('#donation_pop_up').css('display') == 'none') &&
              ($('#printing_pop_up').css('display') == 'none') ) {
-          if (url.includes("project-1"))
+          if (url.includes("Project-1"))
           {
-              window.location.href = "/project-2"
+              window.location.href = "/Project-2"
           } else {
-              window.location.href = "/project-1"
+              window.location.href = "/Project-1"
           }
         }
           /*
@@ -471,11 +468,11 @@ $(function() {
         case 39: // right
         if ( ($('#donation_pop_up').css('display') == 'none') &&
                ($('#printing_pop_up').css('display') == 'none') ) {
-          if (url.includes("project-1"))
+          if (url.includes("Project-1"))
           {
-              window.location.href = "/project-2"
+              window.location.href = "/Project-2"
           } else {
-              window.location.href = "/project-1"
+              window.location.href = "/Project-1"
           }
         }
         /*
@@ -553,7 +550,7 @@ $(function() {
               μπορείς να συγκεντρώσεις πόντους<br />
               για να πάρεις δώρο ένα T-shirt!
             </div>
-            <div id="loading"><img src="/loading.gif" /></div>
+            <div id="loading"><img src="/wp-content/themes/influence-child/loading.gif" /></div>
           </div>
         </div>
         <div id="donation_pop_up">

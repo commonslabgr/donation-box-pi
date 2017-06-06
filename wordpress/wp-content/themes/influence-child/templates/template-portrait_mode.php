@@ -20,12 +20,9 @@ get_header();
         <!-- Progress Bar BEGIN -->
         <script src="/jquery-ui.min.js"></script>
         <div id="instructions">
-            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Εάν θέλεις να ενισχύσεις το έργο που προβάλλεται τώρα στην οθόνη βάλε το κέρμα στον κερματοδέκτη και πάρε την απόδειξη.
-            </div>
-            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Ενημερώσου και για άλλα έργα που μπορείς να ενισχύσεις κουνώντας το μοχλό δεξιά ή αριστερά.
-            </div>
-            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Με τον κωδικό που αναγράφεται στην απόδειξη μάζεψε πόντους στο http://thecoopbox.commonslab.gr και πάρε ένα T-shirt δώρο με συνολικές δωρεές 30€.
-            </div>
+  		    <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Εάν θέλεις να ενισχύσεις το έργο που προβάλλεται και να παίξεις το παιχνίδι, βάλε κέρμα στον κερματοδέκτη.</div>
+            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Ενημερώσου και για άλλα έργα που μπορείς να ενισχύσεις κουνώντας το μοχλό δεξιά ή αριστερά.</div>
+            <div class="instruction_line"><img src="/wp-content/themes/influence-child/red_dot.png"> Με τον κωδικό που αναγράφεται στην απόδειξη μάζεψε πόντους στο http://thecoopbox.commonslab.gr και πάρε ένα T-shirt δώρο με συνολικές δωρεές 30€.</div>
         </div>
 
         <div class="info">

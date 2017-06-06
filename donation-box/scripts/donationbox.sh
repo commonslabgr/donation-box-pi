@@ -15,7 +15,6 @@
 #/usr/bin/xinput set-int-prop "Edamak LG TS2009F-USB" "Evdev Axes Swap" 8 0
 ###END TOUCH screen
 
-
 #Set screen saver and blank off
 /usr/bin/xset s off
 /usr/bin/xset -dpms
@@ -23,14 +22,21 @@
 
 #Start sceensaver
 #/usr/bin/xscreensaver -nosplash &
+
 #Run Video Screensaver
 #/usr/bin/chromium-browser http://donationbox/Video-Fullscreen.html --kiosk &
+
 #Start Chromium for touch screen
 #/usr/bin/chromium-browser http://donationbox/ --kiosk --incognito --touch-devices=$id &
+
+#Start Game
+/home/commonslab/game/start.sh &
+
 #Wait to make sure mySQL and nGinx are running
 sleep 15s
+
 #Start Chromium
-/usr/bin/chromium-browser http://donationbox/project-1 --kiosk --incognito &
+/usr/bin/chromium-browser http://localhost/Project-1 --kiosk --incognito &
 
 ### BEGIN joystic
 #For when joystic runs with USB encoder as a gamepad

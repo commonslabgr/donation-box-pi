@@ -13,36 +13,38 @@
   "Database": {
     "server":"localhost",
     "name" : "donationbox",
-    "username":"wpuser",
-    "password":"dbc0mm0ns"
+    "username":"dbuser",
+    "password":""
   },
   "WebSockets": {
-    "server":"ws://donationbox:8888/ws"
+    "server":"ws://localhost:8888/ws"
   },
   "Protocol":{
 
   },
   "Printer": {
-    "enabled": true,
-    "dev": "/dev/ttyAMA0",
-    "baudrate": 19200,
+    "enabled": false,
+    "dev": "/dev/ttyS0",
+    "baudrate": 9600,
     "heattime": 150,
     "timeout": 5,
     "feedlines": 3
   },
   "Game": {
     "enabled": false,
-    "run": "/home/commonslab/game/start.sh"
+    "run": "/home/commonslab/donation-box/scripts/showgame.sh"
   },
   "Network": {
-      "enabled": true,
+      "enabled": false,
       "boxID": 1,
       "URL": "http://thecoopbox.commonslab.gr",
       "insert": "network_input.php",
-      "get": "get_donation.php"
+      "get": "network_output.php",
+      "get_param": "idproject"
   },
   "UI": {
     "ShowPopUps": false,
+    "SendSumDonations": false,
     "Mode": "Test",
     "_othermodes": "Debug,Production"
   },

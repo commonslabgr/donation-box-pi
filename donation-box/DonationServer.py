@@ -63,11 +63,15 @@ pr_heattime = config["Printer"]["heattime"]
 game_enabled = config["Game"]["enabled"]
 game_run = config["Game"]["run"]
 
+#UI
+ui_sendsum = config["UI"]["SendSumDonations"]
+
 #NETWORK
 net_enabled = config["Network"]["enabled"]
 net_url = config["Network"]["URL"]
 net_send = config["Network"]["insert"]
-net_rec = config["Network"]["get"]
+net_get = config["Network"]["get"]
+net_getparam = config["Network"]["get_param"]
 net_boxid = config["Network"]["boxID"]
 
 #wait at start up for mySQL to load
@@ -157,6 +161,15 @@ def GenerateUID(amount):
     uid = str('{0}{1}{2}').format(a,r,c)
     return uid
 
+#Retrieve Donations from server
+def RetrieveDonations(pid):
+    url = net_url+"/"+net_get+"?"+net_getparam+"="+pid
+    #url = "http://thecoopbox.commonslab.gr/network_output.php?idproject={0}".format(pid)
+    response = urllib2.urlopen(url)
+    data = json.loads(response.read())
+    new_amount = data[0]['amount']
+    logging.debug(json.dumps(data))
+    return new_amount
 
 #Submit Donation data to server
 def SendDonationToServer(prid,value,uid):
@@ -368,9 +381,11 @@ def SendSumDonations(msg):
 
 #Send donations for a specified project ID to clients
 def SendDonations(pid, msg):
-  logging.debug('PID|{0}|TOTAL|{1}'.format(pid,msg))
-  for client in clients:
-    client.write_message('PID|{0}|TOTAL|{1}'.format(pid,msg))
+    if (net_enabled):
+        msg = RetrieveDonations(pid)
+    logging.debug('PID|{0}|TOTAL|{1}'.format(pid,msg))
+    for client in clients:
+        client.write_message('PID|{0}|TOTAL|{1}'.format(pid,msg))
 
 
 #Process Registration
@@ -415,6 +430,9 @@ def ProcessDonation(msg):
   l = len(dondata)
   donvalue = dondata[0:l-3]
   doncurr = dondata[l-3:]
+  #Switch to Game
+  if (values[0] == 'PLAY'):
+      SwitchToGame();
   if net_enabled:
     uid = GenerateUID(donvalue)
     #Insert Donation to Database
@@ -430,9 +448,6 @@ def ProcessDonation(msg):
     donationid = InsertDonation(doncurr,donvalue,name,email,public,prname,prid,0)
     Th_print(doncurr,donvalue,name,email,prname,prid,donationid,0)
 
-  if (values[0] == 'PLAY'):
-    #Switch to Game
-    SwitchToGame();
 
 #Close window playing video loop
 def CloseVideo():
@@ -480,8 +495,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     #s = GetDonations(1) #PID=1 if we run the box as a single donation project, otherwise we need the Project ID
     #Send Donations to web socket clients
     #SendDonations(1,s)
-    s = GetSumDonations()
-    SendSumDonations(s)
+    if (ui_sendsum):
+        s = GetSumDonations()
+        SendSumDonations(s)
 
   #Process any received messages
   def on_message(self, message):

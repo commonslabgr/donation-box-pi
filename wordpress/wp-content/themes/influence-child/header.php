@@ -24,11 +24,11 @@ var ShowPopUps = false;
 var DonationPopUp = true;
 var ShowTimer = true;
 var ProBar = true;
-var GameActive = false;
+var GameActive = true;
 var playgame = false;
 var projects = 2;
 var sel_project = 0;
-var home_url = "http://donationbox/Project-1";
+var home_url = "http://localhost/Project-1";
 var timeout = 500;//120; //timeout in seconds
 var str_href_project_id = "Project";
 var wait_for_print_timeout = 11000; //timeout for pop up when printing receipt
@@ -252,7 +252,7 @@ $(function() {
         }
         /**/
 
-        ws = new WebSocket("ws://donationbox:8888/ws");
+        ws = new WebSocket("ws://localhost:8888/ws");
         ws.onmessage = function(evt) {
             //alert(evt.data);
             //logger(evt.data);
